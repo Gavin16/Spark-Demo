@@ -10,7 +10,7 @@ import org.apache.spark.{HashPartitioner, SparkConf, SparkContext}
 object RDDPartitionBy {
 
     def main(args: Array[String]): Unit = {
-        val sparkConf: SparkConf = new SparkConf().setMaster("local[*]").setAppName("Operator")
+        val sparkConf: SparkConf = new SparkConf().setMaster("local[*]").setAppName("RDDPartitionBy")
         val sc = new SparkContext(sparkConf)
 
         val rdd: RDD[Int] = sc.makeRDD(List(1, 2, 3, 4))
