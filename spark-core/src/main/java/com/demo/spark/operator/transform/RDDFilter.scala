@@ -1,4 +1,4 @@
-package com.demo.spark.operator
+package com.demo.spark.operator.transform
 
 import org.apache.spark.rdd.RDD
 import org.apache.spark.{SparkConf, SparkContext}
@@ -26,21 +26,21 @@ object RDDFilter {
      * 日志文件 apache.log 中筛选出 "17/05/2015" 当天的日志
      * 并打印输出日志的访问IP 和 具体时间
      */
-    def filterTest()={
+    def filterTest() = {
         val sparkConf: SparkConf = new SparkConf().setMaster("local[*]").setAppName("Operator")
         val sc = new SparkContext(sparkConf)
 
         val rdd: RDD[String] = sc.textFile("datas/apache.log")
 
         rdd.filter(
-            line =>{
+            line => {
                 val datas: Array[String] = line.split(" ")
                 val time: String = datas(3)
                 time.startsWith("17/05/2015")
             }
         ).map(line => {
             val strings: Array[String] = line.split(" ")
-            (strings(0),strings(3))
+            (strings(0), strings(3))
         }).collect().foreach(println)
 
 

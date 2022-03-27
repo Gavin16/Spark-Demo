@@ -1,4 +1,4 @@
-package com.demo.spark.operator
+package com.demo.spark.operator.transform
 
 import org.apache.spark.rdd.RDD
 import org.apache.spark.{SparkConf, SparkContext}
@@ -6,7 +6,7 @@ import org.apache.spark.{SparkConf, SparkContext}
 object RDDGroupByKey {
 
     def main(args: Array[String]): Unit = {
-        val config: SparkConf = new SparkConf().setMaster("local[*]").setAppName("RDD")
+        val config: SparkConf = new SparkConf().setMaster("local[*]").setAppName("Operator")
         val sc = new SparkContext(config)
 
         // groupByKey 将数据源中相同key的数据分在同一个组中，形成一个对偶元组

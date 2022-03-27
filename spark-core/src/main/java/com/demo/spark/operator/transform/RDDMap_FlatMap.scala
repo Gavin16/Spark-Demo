@@ -1,7 +1,7 @@
-package com.demo.spark.operator
+package com.demo.spark.operator.transform
 
-import org.apache.spark.{SparkConf, SparkContext}
 import org.apache.spark.rdd.RDD
+import org.apache.spark.{SparkConf, SparkContext}
 
 /**
  * flatMap 将整体拆分为一个一个的个体进行处理
@@ -9,7 +9,7 @@ import org.apache.spark.rdd.RDD
 object RDDMap_FlatMap {
 
     def main(args: Array[String]): Unit = {
-        val config: SparkConf = new SparkConf().setMaster("local[*]").setAppName("RDD")
+        val config: SparkConf = new SparkConf().setMaster("local[*]").setAppName("Operator")
         val sc = new SparkContext(config)
 
         // list 中包含多种数据类型

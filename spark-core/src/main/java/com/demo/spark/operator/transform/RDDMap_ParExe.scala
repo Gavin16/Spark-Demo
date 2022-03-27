@@ -1,7 +1,7 @@
-package com.demo.spark.operator
+package com.demo.spark.operator.transform
 
-import org.apache.spark.{SparkConf, SparkContext}
 import org.apache.spark.rdd.RDD
+import org.apache.spark.{SparkConf, SparkContext}
 
 object RDDMap_ParExe {
 
@@ -9,17 +9,17 @@ object RDDMap_ParExe {
     // 练习: 映射时做过滤处理
     def main(args: Array[String]): Unit = {
 
-        val config: SparkConf = new SparkConf().setMaster("local[*]").setAppName("RDD")
+        val config: SparkConf = new SparkConf().setMaster("local[*]").setAppName("Operator")
         val sc = new SparkContext(config)
-//        val rdd: RDD[Int] = sc.makeRDD(List(1, 2, 3, 4),2)
+        //        val rdd: RDD[Int] = sc.makeRDD(List(1, 2, 3, 4),2)
         val rdd: RDD[String] = sc.textFile("datas/characters.txt")
 
-//        val mappedRDD: RDD[Int] = rdd.mapPartitions(
-//            iter => {
-//                println(">>>> ")
-//                List(iter.max).iterator
-//            }
-//        )
+        //        val mappedRDD: RDD[Int] = rdd.mapPartitions(
+        //            iter => {
+        //                println(">>>> ")
+        //                List(iter.max).iterator
+        //            }
+        //        )
 
         // mapPartitionsWithIndex 指定分区进行处理
         val filterdRDD: RDD[String] = rdd.mapPartitionsWithIndex((index, iter) => {
@@ -39,7 +39,7 @@ object RDDMap_ParExe {
         )
 
 
-//        mappedRDD.collect().foreach(println)
+        //        mappedRDD.collect().foreach(println)
         filterdRDD.collect().foreach(println)
         mapWithPar.collect().foreach(println)
         sc.stop()

@@ -1,4 +1,4 @@
-package com.demo.spark.operator
+package com.demo.spark.operator.transform
 
 import org.apache.spark.rdd.RDD
 import org.apache.spark.{SparkConf, SparkContext}
@@ -14,11 +14,12 @@ object RDDGroupBy {
 
     def main(args: Array[String]): Unit = {
 
-        val config: SparkConf = new SparkConf().setMaster("local[*]").setAppName("RDD")
+        val config: SparkConf = new SparkConf().setMaster("local[*]").setAppName("Operator")
         val sc = new SparkContext(config)
 
         val rdd: RDD[Int] = sc.makeRDD(List(1, 2, 3, 4, 1, 3))
-        def groupByFunc(num:Int)={
+
+        def groupByFunc(num: Int) = {
             num
         }
 
