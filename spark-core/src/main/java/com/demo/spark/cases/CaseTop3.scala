@@ -4,6 +4,8 @@ import org.apache.spark.rdd.RDD
 import org.apache.spark.{SparkConf, SparkContext}
 
 /**
+ * 实战案例: 统计每个省份每个广告被点击数量排行的 top3
+ *
  * 统计agent.log 中每个省份每个广告被点击数量排行的 top3
  * 其中 agent.log 文件中每行包含如下信息
  * 时间戳,省份,城市,用户，广告

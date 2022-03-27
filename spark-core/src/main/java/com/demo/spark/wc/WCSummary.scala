@@ -13,6 +13,15 @@ object WCSummary {
         val sparkConf: SparkConf = new SparkConf().setMaster("local[*]").setAppName("WordCount")
         val sc = new SparkContext(sparkConf)
 
+        wordCount1(sc)
+        wordCount2(sc)
+        wordCount3(sc)
+        wordCount4(sc)
+        wordCount5(sc)
+        wordCount6(sc)
+        wordCount7(sc)
+        wordCount8(sc)
+
         sc.stop()
     }
 
