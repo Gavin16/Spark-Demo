@@ -50,7 +50,7 @@ public class HadoopApiClientTest {
     @Test
     public void testFilePut() throws IOException {
         fs.copyFromLocalFile(false , true, new Path("/Users/minsky/Develop/hadoop/wc/words.txt"),
-                new Path("hdfs://192.168.0.118:18020/input"));
+                new Path("/input"));
     }
 
 }

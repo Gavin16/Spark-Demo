@@ -14,7 +14,7 @@ object RDDAction {
      * take(): 取前N个元素
      */
     def main(args: Array[String]): Unit = {
-        val sparkConf: SparkConf = new SparkConf().setMaster("local[*]").setAppName("Operator")
+        val sparkConf: SparkConf = new SparkConf().setAppName("Operator")
         val sc = new SparkContext(sparkConf)
 
         val rdd: RDD[Int] = sc.makeRDD(List.range(1, 6))

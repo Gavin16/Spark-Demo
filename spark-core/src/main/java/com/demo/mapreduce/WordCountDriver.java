@@ -29,8 +29,9 @@ public class WordCountDriver {
         job.setOutputKeyClass(Text.class);
         job.setOutputValueClass(IntWritable.class);
         // 设置输入路径和输出路径
-        FileInputFormat.setInputPaths(job,new Path(args[0]));
-        FileOutputFormat.setOutputPath(job, new Path(args[1]));
+        // 输入输出路径使用 HDFS 文件路径
+        FileInputFormat.setInputPaths(job,new Path("hdfs://192.168.0.118:18020/input/aaa.txt"));
+        FileOutputFormat.setOutputPath(job, new Path("hdfs://192.168.0.118:18020/wcoutput/res"));
         // 提交job
         boolean result = job.waitForCompletion(Boolean.TRUE);
         System.exit(result? 0: 1);
